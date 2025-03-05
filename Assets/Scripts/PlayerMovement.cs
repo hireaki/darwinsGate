@@ -15,10 +15,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform feetPosition;
     public float groundCheckCircle;
 
+    public float jumpTime = 0.35f;
+    public float jumpTimeCounter;
+    private bool isJumping;
+
     void Update()
     {
         input = Input.GetAxisRaw("Horizontal");
-        if(input < 0)
+        if (input < 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -27,17 +31,41 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
+        
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
 
-        if (isGrounded == true && Input.GetButtonDown("Jump"))
+        
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
             playerRb.velocity = Vector2.up * jumpForce;
         }
 
+        
+        if (Input.GetButton("Jump") && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                playerRb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false; 
+            }
+        }
+
+        
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
     }
 
     void FixedUpdate()
     {
+        
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
     }
 }

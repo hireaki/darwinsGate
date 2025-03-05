@@ -128,7 +128,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 236
-        width: 64
+        width: 32
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -458,6 +458,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: level_tileset_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 236
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ffbf739b20a01c49847c91498a0fcd6
+      internalID: 86573370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -477,6 +498,7 @@ TextureImporter:
       level_tileset_13: -1579634687
       level_tileset_14: 1739414820
       level_tileset_15: -755741220
+      level_tileset_16: 86573370
       level_tileset_2: -1124736949
       level_tileset_3: 1049340512
       level_tileset_4: 1645994748
