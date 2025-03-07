@@ -15,13 +15,18 @@ public class Dialogue : MonoBehaviour
     public float wordSpeed;
     public bool playerIsClose;
 
+    public AudioSource audioSource;
+    public AudioClip dialogueSound;
 
     void Start()
     {
         dialogueText.text = "";
+        if (audioSource != null)
+        {
+            audioSource.loop = true; // Make it loop while typing
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
@@ -35,14 +40,13 @@ public class Dialogue : MonoBehaviour
             {
                 NextLine();
             }
-
         }
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
         {
             RemoveText();
         }
 
-        if(dialogueText.text == dialogue[index])
+        if (dialogueText.text == dialogue[index])
         {
             contButton.SetActive(true);
         }
@@ -53,15 +57,24 @@ public class Dialogue : MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        StopSound(); // Stop sound when dialogue is removed
     }
 
     IEnumerator Typing()
     {
+        if (audioSource != null && dialogueSound != null)
+        {
+            audioSource.clip = dialogueSound;
+            audioSource.Play(); // Start playing the sound
+        }
+
         foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
+
+        StopSound(); // Stop sound when typing is finished
     }
 
     public void NextLine()
@@ -94,6 +107,14 @@ public class Dialogue : MonoBehaviour
         {
             playerIsClose = false;
             RemoveText();
+        }
+    }
+
+    private void StopSound()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop(); // Stop the sound when typing is done
         }
     }
 }

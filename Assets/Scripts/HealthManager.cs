@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class HealthManager : MonoBehaviour
     void Update()
     {   
         if (healthAmount <= 0) 
-        { 
-        Application.LoadLevel(Application.loadedLevel);
+        {
+        SceneManager.LoadScene(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
