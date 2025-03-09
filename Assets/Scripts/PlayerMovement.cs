@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!enabled) return;
+
         input = Input.GetAxisRaw("Horizontal");
         if (input < 0)
         {
@@ -31,10 +33,8 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
 
-        
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
             playerRb.velocity = Vector2.up * jumpForce;
         }
 
-        
         if (Input.GetButton("Jump") && isJumping)
         {
             if (jumpTimeCounter > 0)
@@ -52,11 +51,10 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                isJumping = false; 
+                isJumping = false;
             }
         }
 
-        
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
@@ -65,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        if (!enabled) return;
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
     }
 }
