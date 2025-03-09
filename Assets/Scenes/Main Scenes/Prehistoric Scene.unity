@@ -243,7 +243,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.107305
+  orthographic size: 15.446793
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -912,6 +912,72 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.022535, y: 2.021424, z: -2.0948782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &604187671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 604187673}
+  - component: {fileID: 604187672}
+  m_Layer: 0
+  m_Name: SpawnDialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &604187672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604187671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b70ac48f1d1ce468e58685bdf73d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 1405369983}
+  speakerText: {fileID: 729226865}
+  dialogueText: {fileID: 824945067}
+  portraitImage: {fileID: 1938393561}
+  speaker:
+  - Samuel
+  - Samuel
+  - Samuel
+  - Samuel
+  - Samuel
+  dialogueWords:
+  - What... what's going on? My head feels... weird.
+  - My voice... why does it sound like that?
+  - No... this isn't... are you kidding me? This fur? These... hands?
+  - This isn't right. The machine... I checked the calculations, everything was perfect.
+  - The coordinates... the right date, the right location. Evolution's starting point.
+  portrait:
+  - {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
+  - {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
+  - {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
+  - {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
+  - {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
+--- !u!4 &604187673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604187671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1815468, y: 2.9436202, z: 0.35140082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3119,7 +3185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1848670341920357719, guid: 73e9c4bacf8193c4e9797fdd03431b9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3be13526e2434fe4d94100c0f0abc535, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3148,3 +3214,4 @@ SceneRoots:
   - {fileID: 382659959}
   - {fileID: 1405369987}
   - {fileID: 1353124569}
+  - {fileID: 604187673}
