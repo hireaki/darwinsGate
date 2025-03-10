@@ -18,12 +18,19 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTime = 0.35f;
     public float jumpTimeCounter;
     private bool isJumping;
+    private bool jumpButtonHeld;
+
+    private bool isMovingLeft = false;
+    private bool isMovingRight = false;
 
     void Update()
     {
         if (!enabled) return;
 
-        input = Input.GetAxisRaw("Horizontal");
+        float keyboardInput = Input.GetAxisRaw("Horizontal");
+        if (keyboardInput != 0) input = keyboardInput;
+        else if (!isMovingLeft && !isMovingRight) input = 0;
+
         if (input < 0)
         {
             spriteRenderer.flipX = true;
@@ -35,14 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
 
+        // Keyboard Jump
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            playerRb.velocity = Vector2.up * jumpForce;
+            Jump();
         }
 
-        if (Input.GetButton("Jump") && isJumping)
+        if ((Input.GetButton("Jump") || jumpButtonHeld) && isJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -55,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp("Jump") || !jumpButtonHeld)
         {
             isJumping = false;
         }
@@ -65,5 +71,52 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!enabled) return;
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
+    }
+
+    public void MoveLeft()
+    {
+        isMovingLeft = true;
+        input = -1;
+    }
+
+    public void MoveRight()
+    {
+        isMovingRight = true;
+        input = 1;
+    }
+
+    public void StopMove()
+    {
+        isMovingLeft = false;
+        isMovingRight = false;
+        input = 0;
+    }
+
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            playerRb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    public void StartJump()
+    {
+        jumpButtonHeld = true;
+        if (isGrounded)
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            playerRb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    public void StopJump()
+    {
+        jumpButtonHeld = false;
+        isJumping = false;
+        jumpTimeCounter = 0;
     }
 }

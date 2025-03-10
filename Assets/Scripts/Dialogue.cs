@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string[] speaker;
     [SerializeField][TextArea] private string[] dialogueWords;
     [SerializeField] private Sprite[] portrait;
-    [SerializeField] private int nextSceneIndex = 2;
+    
 
     private bool isPlayerNear;
     private bool isDialogueActive;
