@@ -9,17 +9,18 @@ public class Enemy : MonoBehaviour
     public BaseState currentState;
     public PatrolState patrolState;
     public PlayerDetectedState playerDetectedState;
+    public ChargeState chargeState;
+    public MeleeAttackState meleeAttackState;
+
 
     public Rigidbody2D rb;
     public Transform ledgeDectector;
-    public LayerMask groundLayer, obstacleLayer, playerLayer;
+    public LayerMask groundLayer, obstacleLayer, playerLayer, damageableLayer;
 
-    public bool facingRight = true;
+    public int facingDirection = 1;
+    public float stateTime;
 
-    public float raycastDistance, obstacleDistance, playerDetectDistance;
-    public float speed;
-    public float detectionPauseTime;
-
+    public StatsSO stats;
     public GameObject alert;
     #endregion
 
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
     {
         patrolState = new PatrolState(this, "patrol");
         playerDetectedState = new PlayerDetectedState(this, "player");
+        chargeState = new ChargeState(this, "charge");
+        meleeAttackState = new MeleeAttackState(this, "meleeAttack");
 
         currentState = patrolState;
         currentState.Enter();
@@ -48,8 +51,8 @@ public class Enemy : MonoBehaviour
     #region Checks
     public bool CheckForObstacle()
     {
-        RaycastHit2D hit = Physics2D.Raycast(ledgeDectector.position, Vector2.down, raycastDistance, groundLayer);
-        RaycastHit2D hitObstacle = Physics2D.Raycast(ledgeDectector.position, Vector2.right, obstacleDistance, obstacleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(ledgeDectector.position, Vector2.down, stats.cliffCheckDistance, groundLayer);
+        RaycastHit2D hitObstacle = Physics2D.Raycast(ledgeDectector.position, Vector2.right, stats.obstacleDistance, obstacleLayer);
 
         if (hit.collider == null || hitObstacle.collider == true)
             return true;
@@ -57,12 +60,22 @@ public class Enemy : MonoBehaviour
             return false;
         
     }
-
-   public bool CheckForPlayer()
+   
+    public bool CheckForPlayer()
     {
-        RaycastHit2D hitPlayer = Physics2D.Raycast(ledgeDectector.position, facingRight ? Vector2.right : Vector2.left, playerDetectDistance, playerLayer);
+        RaycastHit2D hitPlayer = Physics2D.Raycast(ledgeDectector.position, facingDirection == 1 ? Vector2.right : Vector2.left, stats.playerDetectDistance, playerLayer);
 
         if (hitPlayer.collider == true)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CheckForMeleeTarget()
+    {
+        RaycastHit2D hitMeleeTarget = Physics2D.Raycast(ledgeDectector.position, facingDirection == 1 ? Vector2.right : Vector2.left, stats.meleeDetectDistance, playerLayer);
+
+        if (hitMeleeTarget.collider == true)
             return true;
         else
             return false;
@@ -76,11 +89,7 @@ public class Enemy : MonoBehaviour
         currentState.Exit();
         currentState = newState;
         currentState.Enter();
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(ledgeDectector.position, (facingRight ? Vector2.right : Vector2.left) * playerDetectDistance);
+        stateTime = Time.time;
     }
     #endregion
 }

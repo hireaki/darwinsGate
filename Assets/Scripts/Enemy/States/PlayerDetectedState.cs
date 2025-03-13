@@ -28,6 +28,11 @@ public class PlayerDetectedState : BaseState
 
         if (!enemy.CheckForPlayer())
             enemy.SwitchState(enemy.patrolState);
+        else
+        {
+            if (Time.time >= enemy.stateTime + enemy.stats.playerDetectedWaitTime)
+                enemy.SwitchState(enemy.chargeState);
+        }
     }
 
     public override void PhysicsUpdate()

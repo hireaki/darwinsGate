@@ -31,15 +31,15 @@ public class PatrolState : BaseState
     {
         base.PhysicsUpdate();
 
-            if (enemy.facingRight)
-                enemy.rb.velocity = new Vector2(enemy.speed, enemy.rb.velocity.y);
+            if (enemy.facingDirection == 1)
+                enemy.rb.velocity = new Vector2(enemy.stats.speed, enemy.rb.velocity.y);
             else
-                enemy.rb.velocity = new Vector2(-enemy.speed, enemy.rb.velocity.y);
+                enemy.rb.velocity = new Vector2(-enemy.stats.speed, enemy.rb.velocity.y);
     }
 
     void Rotate()
     {
         enemy.transform.Rotate(0, 180, 0);
-        enemy.facingRight = !enemy.facingRight;
+        enemy.facingDirection = -enemy.facingDirection;
     }
 }
