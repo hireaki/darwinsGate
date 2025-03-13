@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Dialogue : MonoBehaviour
+public class IntroDialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TMP_Text speakerText;

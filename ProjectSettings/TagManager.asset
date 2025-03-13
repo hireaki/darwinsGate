@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraBounds
   - Weak Point
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Obstacle
   - Player
   - Tilemap
-  - 
+  - NPC
   - 
   - 
   - 

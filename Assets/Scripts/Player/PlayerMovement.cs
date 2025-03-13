@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
     }
 
     void FixedUpdate()
@@ -119,4 +120,5 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
         jumpTimeCounter = 0;
     }
+    
 }

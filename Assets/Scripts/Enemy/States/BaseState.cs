@@ -15,7 +15,6 @@ public class BaseState
 
     public virtual void Enter()
     {
-        Debug.Log("Entered" + animationName);
     }
 
     public virtual void Exit()
