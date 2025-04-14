@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (!enabled) return;
+
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
     }
 

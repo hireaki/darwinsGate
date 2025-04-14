@@ -21,8 +21,11 @@ public class MeleeAttackState : BaseState
 
             if (damageable != null)
             {
-                hitCollider.GetComponent<Rigidbody2D>().velocity = new Vector2(enemy.stats.knockBackAngle.x * enemy.facingDirection, 
+                PlayerMovement playerMovement = hitCollider.GetComponent<PlayerMovement>();
+                playerMovement.enabled = false;
+                hitCollider.GetComponent<Rigidbody2D>().velocity = new Vector2(enemy.stats.knockBackAngle.x * enemy.facingDirection,
                     enemy.stats.knockBackAngle.y) * enemy.stats.knockbackForce;
+                playerMovement.enabled = true;
                 damageable.Damage(enemy.stats.damageAmount);
             }
         }
