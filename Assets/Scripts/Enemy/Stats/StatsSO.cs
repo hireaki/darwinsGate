@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="StatsSO")]
 public class StatsSO : ScriptableObject
 {
+    [Header("General Stats")]
+    public float maxHealth = 20;
+
     [Header("PatrolState")]
     public float speed;
     public float cliffCheckDistance;

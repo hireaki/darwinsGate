@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     #region Variables
     public BaseState currentState;
@@ -11,16 +12,19 @@ public class Enemy : MonoBehaviour
     public PlayerDetectedState playerDetectedState;
     public ChargeState chargeState;
     public MeleeAttackState meleeAttackState;
+    public DamagedState damagedState;   
 
 
     public Rigidbody2D rb;
     public Transform ledgeDectector;
     public LayerMask groundLayer, obstacleLayer, playerLayer, damageableLayer;
 
+    public bool isKnockedBack = false;
     public int facingDirection = 1;
     public float stateTime;
 
     public StatsSO stats;
+    public float currentHealth;
     public GameObject alert;
     #endregion
 
@@ -31,11 +35,16 @@ public class Enemy : MonoBehaviour
         playerDetectedState = new PlayerDetectedState(this, "player");
         chargeState = new ChargeState(this, "charge");
         meleeAttackState = new MeleeAttackState(this, "meleeAttack");
+        damagedState = new DamagedState(this, "damaged");
 
         currentState = patrolState;
         currentState.Enter();
     }
 
+    private void Start()
+    {
+        currentHealth = stats.maxHealth;
+    }
     private void Update()
     {
         currentState.LogicUpdate();
@@ -90,6 +99,16 @@ public class Enemy : MonoBehaviour
         currentState = newState;
         currentState.Enter();
         stateTime = Time.time;
+    }
+
+    public void Damage(float damageAmount)
+    {
+        currentHealth -= damageAmount;
+    }
+
+    public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)
+    {
+
     }
     #endregion
 }

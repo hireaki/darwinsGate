@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float input;
     public SpriteRenderer spriteRenderer;
     public float jumpForce;
-
+    public GameObject attackObj;
     public LayerMask groundLayer;
     private bool isGrounded;
     public Transform feetPosition;
@@ -66,8 +66,18 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(Attack());
+        }
     }
 
+    IEnumerator Attack()
+    {
+        attackObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        attackObj.SetActive(false);
+    }
     void FixedUpdate()
     {
         if (!enabled) return;

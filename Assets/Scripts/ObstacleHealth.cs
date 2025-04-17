@@ -11,6 +11,11 @@ public class ObstacleHleath : MonoBehaviour, IDamageable
         health -= (int)damageAmount;
     }
 
+    public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)
+    {
+        
+    }
+
     private void Update()
     {
         if (health <= 0)
