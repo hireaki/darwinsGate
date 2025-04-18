@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public StatsSO stats;
     public float currentHealth;
     public GameObject alert;
+    private SpriteRenderer spriteRenderer;
     #endregion
 
     #region Unity Callbacks
@@ -36,7 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
         chargeState = new ChargeState(this, "charge");
         meleeAttackState = new MeleeAttackState(this, "meleeAttack");
         damagedState = new DamagedState(this, "damaged");
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentState = patrolState;
         currentState.Enter();
     }
@@ -103,9 +105,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
-        currentHealth -= damageAmount;
+        PlayerDamage(damageAmount);
     }
 
+    async void PlayerDamage(float damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        spriteRenderer.color = Color.red; // Change color to red on hit
+        await Task.Delay(500); // Wait for 0.5 seconds
+        spriteRenderer.color = Color.white; // Reset color after hit
+    }
     public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)
     {
 

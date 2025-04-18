@@ -14,12 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public Transform feetPosition;
     public float groundCheckCircle;
-
     public float jumpTime = 0.35f;
     public float jumpTimeCounter;
     private bool isJumping;
     private bool jumpButtonHeld;
-
     private bool isMovingLeft = false;
     private bool isMovingRight = false;
 
@@ -34,10 +32,13 @@ public class PlayerMovement : MonoBehaviour
         if (input < 0)
         {
             spriteRenderer.flipX = true;
+            attackObj.transform.localPosition = new Vector3(0.33f, 0, 0);
         }
         else if (input > 0)
         {
             spriteRenderer.flipX = false;
+            attackObj.transform.localPosition = new Vector3(0.57f, 0, 0);
+
         }
 
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
