@@ -1,16 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public Animator hitParticleAnimation;
     public GameObject hitParticleObject;
     public int health;
+    public int maxHealth;
+    public Slider slider;
+
+    void Start()
+    {
+        health = maxHealth;
+        slider.maxValue = maxHealth;
+        slider.value = health;
+    }
+
     public void Damage(float damageAmount)
     {
         hitParticleObject.SetActive(true);
         hitParticleAnimation.Play("HitParticle");
+        slider.maxValue = maxHealth;
+        slider.value = health;
 
         health -= (int)damageAmount;
     }
