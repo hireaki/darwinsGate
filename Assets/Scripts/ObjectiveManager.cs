@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ObjectiveManager : MonoBehaviour
@@ -9,20 +8,27 @@ public class ObjectiveManager : MonoBehaviour
     public UnityEngine.UI.Image checkmarkImage;
 
     public Transform player;
-    public Transform shallowWaterTrigger;
+    public Transform shallowWaterPoint;
 
-    private bool hasWalkedToWater = false;
+    private bool hasWalked = false;
+    private bool hasShownObjective = false;
 
     void Start()
     {
         checkmarkImage.enabled = false;
-        ShowObjective("Walk to the shallow water.");
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(player.position, shallowWaterTrigger.position);
-        if (!hasWalkedToWater && distance < 2f)
+        float distance = Vector3.Distance(player.position, shallowWaterPoint.position);
+
+        if (!hasShownObjective && distance < 5f)
+        {
+            ShowObjective("Walk to the shallow water.");
+            hasShownObjective = true;
+        }
+
+        if (!hasWalked && distance < 2f)
         {
             CompleteObjective();
         }
@@ -36,9 +42,8 @@ public class ObjectiveManager : MonoBehaviour
 
     void CompleteObjective()
     {
-        hasWalkedToWater = true;
+        hasWalked = true;
         checkmarkImage.enabled = true;
-
         Invoke(nameof(NextObjective), 2f);
     }
 
