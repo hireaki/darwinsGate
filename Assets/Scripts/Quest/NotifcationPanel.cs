@@ -5,19 +5,24 @@ using TMPro;
 public class NotificationPanel : MonoBehaviour
 {
     public TMP_Text notificationText;
-    public GameObject panel;
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
 
     public void ShowNotification(string message)
     {
-        StopAllCoroutines();
-        StartCoroutine(NotificationRoutine(message));
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
+
+        notificationText.text = message;
+        StartCoroutine(HideNotification());
     }
 
-    private IEnumerator NotificationRoutine(string message)
+    private IEnumerator HideNotification()
     {
-        panel.SetActive(true);
-        notificationText.text = message;
-        yield return new WaitForSeconds(2.5f);
-        panel.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 }

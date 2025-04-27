@@ -38,4 +38,12 @@ public class QuestManager : MonoBehaviour
             AddQuest(currentQuestIndex);
         }
     }
+    public bool CheckCurrentObjective(string objective)
+    {
+        if (currentQuestIndex >= quests.Count)
+            return false;
+
+        return quests[currentQuestIndex].Item2 == objective;
+    }
+
 }
