@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SaveController : MonoBehaviour
 {
     private string saveLocation;
     private InvetoryController inventoryController;
+    private HotbarController hotbarController;
+
     // Start is called before the first frame update
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "save.json");
         inventoryController = FindObjectOfType<InvetoryController>();
+        hotbarController = FindObjectOfType<HotbarController>();
+
         LoadGame();
     }
 
@@ -22,8 +27,9 @@ public class SaveController : MonoBehaviour
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             mapBoundary = FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D.gameObject.name,
-            inventorySaveData = inventoryController.GetInventoryItems()
-        }; ; ;
+            inventorySaveData = inventoryController.GetInventoryItems(),
+            hotbarSaveData = hotbarController.GetHorbarItems()
+        };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
     }
@@ -36,6 +42,7 @@ public class SaveController : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
             FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
+            hotbarController.SetHotbarItems(saveData.hotbarSaveData);
         }
         else
         {

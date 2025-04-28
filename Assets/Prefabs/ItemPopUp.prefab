@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 6798808169802917381}
   - component: {fileID: 4960470412497915760}
   - component: {fileID: 8670453626919052003}
+  - component: {fileID: -6256068258122049750}
   m_Layer: 5
   m_Name: ItemPopUp
   m_TagString: Untagged
@@ -286,3 +287,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-6256068258122049750
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079085625191535728}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

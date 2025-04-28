@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemPickupUIController : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class ItemPickupUIController : MonoBehaviour
 
     public GameObject popupPrefab;
     public int maxPopups = 5;
-    public float popupDuration;
+    public float popupDuration = 3f;
 
     private readonly Queue<GameObject> activePopups = new();
 
@@ -51,7 +53,7 @@ public class ItemPickupUIController : MonoBehaviour
         yield return new WaitForSeconds(popupDuration);
         if (popup == null) yield break;
 
-        CanvasGroup canvasGroup = popup.GetComponent<canvasGroup>();
+        CanvasGroup canvasGroup = popup.GetComponent<CanvasGroup>();
         for(float timePassed = 0f; timePassed < 1f; timePassed += Time.deltaTime)
         {
             if (popup = null) yield break;
