@@ -617,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0.000024795532}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: -17.4312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117997768
@@ -2406,9 +2406,9 @@ RectTransform:
   - {fileID: 1277935644}
   m_Father: {fileID: 46348065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -590, y: 305}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 490, y: -50}
   m_SizeDelta: {x: 560, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484975847
@@ -3787,7 +3787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 760, y: -400}
+  m_AnchoredPosition: {x: 760, y: -510}
   m_SizeDelta: {x: 250, y: 370}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765173347
@@ -8120,7 +8120,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 135, y: 155}
-  m_SizeDelta: {x: 270, y: 250}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123147717
 MonoBehaviour:
@@ -8337,7 +8337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: notif
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ca3b59568649ef4493ffd7d192f211a, type: 2}
   m_sharedMaterial: {fileID: -7995721837710712379, guid: 2ca3b59568649ef4493ffd7d192f211a, type: 2}
@@ -8364,8 +8364,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8586,8 +8586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 405, y: 155}
-  m_SizeDelta: {x: 270, y: 250}
+  m_AnchoredPosition: {x: 365, y: 155}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267303232
 MonoBehaviour:
@@ -11406,8 +11406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -205, y: 155}
-  m_SizeDelta: {x: 270, y: 250}
+  m_AnchoredPosition: {x: -160, y: 155}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814100455
 MonoBehaviour:
@@ -12577,8 +12577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 120, y: -382.5}
-  m_SizeDelta: {x: -1100, y: -935}
+  m_AnchoredPosition: {x: 0, y: -425}
+  m_SizeDelta: {x: -1260, y: -950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956696548
 MonoBehaviour:
@@ -12594,7 +12594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotbarPanel: {fileID: 1956696546}
   slotPrefab: {fileID: 1462013627247152811, guid: ff2edd5c85b7c2f40b7e6c3f865199a7, type: 3}
-  slotCount: 5
+  slotCount: 4
 --- !u!114 &1956696549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12613,7 +12613,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -45
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -13167,6 +13167,18 @@ PrefabInstance:
     - target: {fileID: 898238835440023594, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209256053549459739, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209256053549459739, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209256053549459739, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1607170668757923561, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
       propertyPath: m_Pivot.x
