@@ -4,7 +4,8 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public QuestPage questPage;
-    public NotificationPanel notificationPanel; 
+    public NotificationPanel notificationPanel;
+    public PlayerLevelSystem levelSystem;
 
     private int currentQuestIndex = 0;
     private List<(string, string)> quests = new List<(string, string)>();
@@ -31,6 +32,7 @@ public class QuestManager : MonoBehaviour
     public void CompleteCurrentQuest()
     {
         questPage.CompleteQuest(currentQuestIndex);
+        levelSystem.GainXP(1); // Give 1 XP per quest
         currentQuestIndex++;
 
         if (currentQuestIndex < quests.Count)
