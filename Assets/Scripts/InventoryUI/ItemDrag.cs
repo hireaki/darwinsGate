@@ -8,6 +8,9 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     Transform originalParent;
     CanvasGroup canvasGroup;
 
+    public float minDropDistance = 3f;
+    public float maxDropDistance = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
@@ -61,13 +65,45 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         else
         {
-            transform.SetParent(originalParent);
+            if (!IsWithinInventory(eventData.position))
+            {
+                DropItem(originalSlot);
+            } 
+            else
+            {
+                transform.SetParent(originalParent);
+            }
+            
         }
         GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
-    // Update is called once per frame
-    void Update()
+    
+    bool IsWithinInventory(Vector2 mousePosition)
     {
-        
+        RectTransform inventoryRect = originalParent.parent.GetComponent<RectTransform>();
+        return RectTransformUtility.RectangleContainsScreenPoint(inventoryRect, mousePosition);
     }
+
+    void DropItem(Slot originalSlot)
+    {
+        originalSlot.currentItem = null;
+
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (playerTransform == null)
+        {
+            return;
+        }
+
+        // Side-scrolling drop offset: only affect X and keep Y close to the player's Y
+        float horizontalOffset = Random.Range(minDropDistance, maxDropDistance) * (Random.value < 0.5f ? -1 : 1);
+        Vector2 dropPosition = new Vector2(
+            playerTransform.position.x + horizontalOffset,
+            playerTransform.position.y + 0.5f // small vertical lift
+        );
+
+        GameObject dropItem = Instantiate(gameObject, dropPosition, Quaternion.identity);
+        dropItem.GetComponent<BounceFX>().StartBounce();
+        Destroy(gameObject);
+    }
+
 }

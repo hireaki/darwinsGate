@@ -7,6 +7,7 @@ public class InvetoryController : MonoBehaviour
     private ItemDictionary itemDictionary;
 
     public GameObject inventoryPanel;
+    public GameObject hotbarPanel;
     public GameObject slotPrefab;
     public int slotCount;
     public GameObject[] itemPrefabs;
@@ -30,7 +31,22 @@ public class InvetoryController : MonoBehaviour
 
     public bool AddItem(GameObject itemPrefab)
     {
-        foreach(Transform slotTransform in inventoryPanel.transform)
+        foreach (Transform slotTransform in hotbarPanel.transform)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot != null && slot.currentItem == null)
+            {
+                GameObject newItem = Instantiate(itemPrefab, slot.transform);
+                var itemTransform = newItem.GetComponent<RectTransform>();
+                itemTransform.anchoredPosition = Vector2.zero;
+                itemTransform.localScale = new Vector3(0.68f, 0.68f, 0.68f);
+                itemTransform.pivot = new Vector2(0.55f, 0.5f);
+
+                slot.currentItem = newItem;
+                return true;
+            }
+        }
+        foreach (Transform slotTransform in inventoryPanel.transform)
         {
             Slot slot = slotTransform.GetComponent<Slot>();
             if (slot != null && slot.currentItem == null)

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerItemCollector : MonoBehaviour
 {
-   private InvetoryController inventoryController;
-
+    private InvetoryController inventoryController;
+    public QuestManager questManager;
     private void Start()
     {
         inventoryController = FindObjectOfType<InvetoryController>();
+        questManager = FindObjectOfType<QuestManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +26,7 @@ public class PlayerItemCollector : MonoBehaviour
                 {
                     item.Pickup();
                     Destroy(collision.gameObject);
+                    questManager.CompleteCurrentQuest();
                 }
             }
         }
