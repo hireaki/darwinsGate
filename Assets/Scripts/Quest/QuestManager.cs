@@ -4,16 +4,16 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public QuestPage questPage;
-    public NotificationPanel notificationPanel; // Para sa notif
+    public NotificationPanel notificationPanel; 
 
     private int currentQuestIndex = 0;
     private List<(string, string)> quests = new List<(string, string)>();
 
     void Start()
     {
-        quests.Add(("Walk to Water", "Walk through the shallow water"));
-        quests.Add(("Pick up a Rock", "Find and pick up a rock"));
-        quests.Add(("Deliver the Rock", "Bring the rock to the NPC"));
+        quests.Add(("Water?", "Walk through the shallow water"));
+        quests.Add(("What's this?", "Find and pick up a rock"));
+        quests.Add(("How to get across?", "Jump across the Obstacle"));
 
         AddQuest(currentQuestIndex);
     }
