@@ -12,6 +12,7 @@ public class SpawnDialogue : MonoBehaviour
     [SerializeField] private string[] speaker;
     [SerializeField][TextArea] private string[] dialogueWords;
     [SerializeField] private Sprite[] portrait;
+    [SerializeField] private Button interactButton;
 
     private bool isDialogueActive;
     private int step;
@@ -21,6 +22,9 @@ public class SpawnDialogue : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         StartDialogue();
+
+        if (interactButton != null)
+            interactButton.onClick.AddListener(NextDialogueLine);
     }
 
     private void Update()

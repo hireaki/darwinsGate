@@ -7,6 +7,7 @@ public class PlayerLevelSystem : MonoBehaviour
     public Slider xpBarSlider;
     public TextMeshProUGUI xpText;
     public TextMeshProUGUI levelText;
+   
 
     public int currentLevel = 1;
     public int currentXP = 0;
@@ -35,5 +36,6 @@ public class PlayerLevelSystem : MonoBehaviour
         xpBarSlider.value = currentXP;
         xpText.text = $"Level {currentLevel} - {currentXP}/{xpToNextLevel} XP";
         levelText.text = $"Level {currentLevel}";
+      
     }
 }

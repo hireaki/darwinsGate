@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public Animator hitParticleAnimation;
     public GameObject hitParticleObject;
     public int health;
-    public int maxHealth;
+    public int maxHealth = 50;
     public Slider slider;
 
     void Start()
