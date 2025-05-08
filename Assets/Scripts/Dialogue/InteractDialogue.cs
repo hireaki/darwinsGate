@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,49 +7,51 @@ using UnityEngine.UI;
 public class InteractDialogue : MonoBehaviour
 {
     // UI References
-    [SerializeField]
-    private GameObject dialogueCanvas;
+    [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private TMP_Text speakerText;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Image portraitImage;
+    [SerializeField] private Button nextButton; // ✅ Interact Button for mobile
 
-    [SerializeField]
-    private TMP_Text speakerText;
-
-    [SerializeField]
-    private TMP_Text dialogueText;
-
-    [SerializeField]
-    private Image portraitImage;
-
-    //Dialogue Content
-    [SerializeField]
-    private string[] speaker;
-
-    [SerializeField]
-    [TextArea]
-    private string[] dialogueWords;
-
-    [SerializeField]
-    private Sprite[] portrait;
+    // Dialogue Content
+    [SerializeField] public string[] speaker;
+    [SerializeField][TextArea] public string[] dialogueWords;
+    [SerializeField] private Sprite[] portrait;
 
     private bool dialogueActivated;
     private int step;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetButtonDown("Interact") && dialogueActivated)
+        // ✅ Link mobile button if assigned
+        if (nextButton != null)
         {
-            if (!dialogueCanvas.activeSelf)
+            nextButton.onClick.AddListener(() =>
             {
-                StartDialogue();
-            }
-            else
-            {
-                NextDialogueLine();
-            }
+                if (dialogueActivated && dialogueCanvas.activeSelf)
+                    NextDialogueLine();
+            });
         }
     }
 
-    private void StartDialogue()
+    void Update()
     {
+        //if (Input.GetButtonDown("Interact") && dialogueActivated)
+        //{
+        //    if (!dialogueCanvas.activeSelf)
+        //    {
+        //        StartDialogue();
+        //    }
+        //    else
+        //    {
+        //        NextDialogueLine();
+        //    }
+        //}
+    }
+
+    public void StartDialogue()
+    {
+        dialogueActivated = true;
         dialogueCanvas.SetActive(true);
         step = 0;
         ShowDialogue();
@@ -57,6 +59,7 @@ public class InteractDialogue : MonoBehaviour
 
     private void NextDialogueLine()
     {
+        Debug.Log("Next Dialogue Line");
         step++;
         if (step >= speaker.Length)
         {
@@ -72,14 +75,13 @@ public class InteractDialogue : MonoBehaviour
     {
         speakerText.text = speaker[step];
         dialogueText.text = dialogueWords[step];
-        portraitImage.sprite = portrait[step];
+        portraitImage.sprite = portrait[step]; 
     }
 
     private void EndDialogue()
     {
         dialogueCanvas.SetActive(false);
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

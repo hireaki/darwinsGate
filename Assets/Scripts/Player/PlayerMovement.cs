@@ -32,12 +32,18 @@ public class PlayerMovement : MonoBehaviour
         if (input < 0)
         {
             spriteRenderer.flipX = true;
-            attackObj.transform.localPosition = new Vector3(0.33f, 0, 0);
+            if (attackObj != null)
+            {
+                attackObj.transform.localPosition = new Vector3(0.33f, 0, 0);
+            }
         }
         else if (input > 0)
         {
             spriteRenderer.flipX = false;
-            attackObj.transform.localPosition = new Vector3(0.57f, 0, 0);
+            if (attackObj != null)
+            {
+                attackObj.transform.localPosition = new Vector3(0.57f, 0, 0);
+            }
 
         }
 
