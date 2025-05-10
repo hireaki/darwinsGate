@@ -20,7 +20,7 @@ TagManager:
   - Player
   - Tilemap
   - NPC
-  - 
+  - Machine
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
     locked: 0
   - name: Collision1
     uniqueID: 1717656769
+    locked: 0
+  - name: Machine
+    uniqueID: 1855356585
     locked: 0

@@ -16,13 +16,15 @@ public class InteractDialogue : MonoBehaviour
     // Dialogue Content
     [SerializeField] public string[] speaker;
     [SerializeField][TextArea] public string[] dialogueWords;
-    [SerializeField] private Sprite[] portrait;
+    [SerializeField] public Sprite[] portrait;
 
     private bool dialogueActivated;
     private int step;
+    GameObject player;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         // ✅ Link mobile button if assigned
         if (nextButton != null)
         {
@@ -59,7 +61,6 @@ public class InteractDialogue : MonoBehaviour
 
     private void NextDialogueLine()
     {
-        Debug.Log("Next Dialogue Line");
         step++;
         if (step >= speaker.Length)
         {
@@ -73,14 +74,18 @@ public class InteractDialogue : MonoBehaviour
 
     private void ShowDialogue()
     {
+        player.GetComponent<PlayerMovement>().enabled = false;
+
         speakerText.text = speaker[step];
         dialogueText.text = dialogueWords[step];
-        portraitImage.sprite = portrait[step]; 
+        portraitImage.sprite = portrait[step];
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         dialogueCanvas.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = true;
+        Interaction_Manager.instance.interactionLevel++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

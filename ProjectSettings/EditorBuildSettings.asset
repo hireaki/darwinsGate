@@ -6,10 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Scenes/Intro Cutscene.unity
+    guid: 1c9992942548d8844ac4893816d513ac
+  - enabled: 1
     path: Assets/Scenes/Main Scenes/Start Menu.unity
     guid: 50a268e993950e04cacceee6e4bfadce
   - enabled: 1
-    path: Assets/Scenes/Main Scenes/Intro Scene.unity
+    path: Assets/Scenes/Main Scenes/Lab Scene.unity
     guid: 9607448a47b3f8946a51b561ed0faacd
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Cave Scene.unity
