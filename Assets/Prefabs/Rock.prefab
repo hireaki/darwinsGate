@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 399743318524338964}
   - component: {fileID: -8835184445756859036}
   - component: {fileID: -6980767871510759037}
+  - component: {fileID: 6426962613313916422}
   m_Layer: 5
-  m_Name: Item
+  m_Name: Rock
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ RectTransform:
   m_GameObject: {fileID: 1510359540130243711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.5, y: -0.5, z: -0}
+  m_LocalScale: {x: 5, y: 5, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: -1087019745
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 340377066, guid: 134cfa6ea0ad0b1429f1d5c903eaed55, type: 3}
+  m_Sprite: {fileID: 1728502990, guid: 8a78dea4aa9be8b44b673103e4805b7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c787ceb9b199df14a863f2220e922311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDropDistance: 2
-  maxDropDistance: 3
+  minDropDistance: 4
+  maxDropDistance: 5
 --- !u!114 &-8835184445756859036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,3 +208,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.484375
+--- !u!114 &6426962613313916422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510359540130243711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48fc4e6ce15b3b4abb24dfa742d5e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceHeight: 0.3
+  bounceDuration: 0.4
+  bounceCount: 2

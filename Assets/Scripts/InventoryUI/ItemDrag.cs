@@ -98,12 +98,22 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         float horizontalOffset = Random.Range(minDropDistance, maxDropDistance) * (Random.value < 0.5f ? -1 : 1);
         Vector2 dropPosition = new Vector2(
             playerTransform.position.x + horizontalOffset,
-            playerTransform.position.y + 0.5f // small vertical lift
+            playerTransform.position.y
         );
+
+        // Perform a raycast to find the floor
+        RaycastHit2D hit = Physics2D.Raycast(dropPosition, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Ground"));
+        if (hit.collider != null)
+        {
+            // Adjust the drop position to the floor's Y position
+            dropPosition.y = hit.point.y + 0.5f;
+        }
 
         GameObject dropItem = Instantiate(gameObject, dropPosition, Quaternion.identity);
         dropItem.GetComponent<BounceFX>().StartBounce();
+        dropItem.GetComponent<RectTransform>().localScale = new Vector3(5, 5, 5);
         Destroy(gameObject);
     }
+
 
 }
