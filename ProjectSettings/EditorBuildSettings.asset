@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Afarensis Scene.unity
     guid: 4da45093a1adc6746abc7e7b771d97b5
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/Habilis Scene.unity
+    guid: abde41f4a1537184ab861a707b7b608f
   m_configObjects: {}
