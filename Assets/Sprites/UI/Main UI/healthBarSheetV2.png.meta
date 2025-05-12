@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: 8c4954c417e2a0542ac158458cf93643
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: healthBarSheetV2_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 204
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae36c00af524c2d4a8f55160320113e9
+      internalID: -1509360940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 185
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3121a26a4ee5f4db2cd081deed1ff7
+      internalID: -511935817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 166
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b05857c0dc2fc469905939e7c10152
+      internalID: -1451176807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_30
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 147
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8063b37da94dd4a91485e189fff6d3
+      internalID: 1600792194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_40
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 128
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77920f5afb1e2704cae6c9d2a04de9ee
+      internalID: -1713122718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_50
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 108
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ac5db8ca07eb546b6b3c785ef1594a
+      internalID: -53490613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_60
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 88
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c879e89f2a2adca43900e327cdc368ab
+      internalID: -2078020883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_70
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 69
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a583bb11ee1636842862439973462567
+      internalID: 1138388801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_80
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 49
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb39ba60d0e692a4e98f94983088e5f1
+      internalID: -638996492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 29
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f298445b9c42a8d4c8a224c58aa25470
+      internalID: 1024058238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBarSheetV2_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 9
+        width: 187
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413b0b822764e6744a00043f457115cc
+      internalID: 1660759750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      healthBarSheetV2_0: -1509360940
+      healthBarSheetV2_1: 1024058238
+      healthBarSheetV2_10: -511935817
+      healthBarSheetV2_100: -572635578
+      healthBarSheetV2_101: 2129960920
+      healthBarSheetV2_102: -906644034
+      healthBarSheetV2_103: -883260423
+      healthBarSheetV2_104: -814271718
+      healthBarSheetV2_105: 717210095
+      healthBarSheetV2_106: 813717922
+      healthBarSheetV2_107: 885085466
+      healthBarSheetV2_108: -1436158991
+      healthBarSheetV2_109: -743814210
+      healthBarSheetV2_11: 926101127
+      healthBarSheetV2_110: 2121514387
+      healthBarSheetV2_12: -1565745066
+      healthBarSheetV2_13: -1995471897
+      healthBarSheetV2_14: -840967704
+      healthBarSheetV2_15: 1357104017
+      healthBarSheetV2_16: 124191394
+      healthBarSheetV2_17: 203628026
+      healthBarSheetV2_18: 483871366
+      healthBarSheetV2_19: 1638038399
+      healthBarSheetV2_2: 1660759750
+      healthBarSheetV2_20: -1451176807
+      healthBarSheetV2_21: 283849147
+      healthBarSheetV2_22: -808204811
+      healthBarSheetV2_23: -741544071
+      healthBarSheetV2_24: -1151248898
+      healthBarSheetV2_25: -966202879
+      healthBarSheetV2_26: 1422029325
+      healthBarSheetV2_27: -1612741731
+      healthBarSheetV2_28: -1457247531
+      healthBarSheetV2_29: 1857427490
+      healthBarSheetV2_3: 1444923665
+      healthBarSheetV2_30: 1600792194
+      healthBarSheetV2_31: 247518102
+      healthBarSheetV2_32: 753644565
+      healthBarSheetV2_33: -1798006993
+      healthBarSheetV2_34: -419794557
+      healthBarSheetV2_35: -1678825367
+      healthBarSheetV2_36: 1087074020
+      healthBarSheetV2_37: 1622051374
+      healthBarSheetV2_38: -1826055690
+      healthBarSheetV2_39: -1759328489
+      healthBarSheetV2_4: 250683988
+      healthBarSheetV2_40: -1713122718
+      healthBarSheetV2_41: -1529955331
+      healthBarSheetV2_42: 166787879
+      healthBarSheetV2_43: 1787020558
+      healthBarSheetV2_44: 179926354
+      healthBarSheetV2_45: 413222487
+      healthBarSheetV2_46: 2144490361
+      healthBarSheetV2_47: -933541478
+      healthBarSheetV2_48: 2008493679
+      healthBarSheetV2_49: 109804170
+      healthBarSheetV2_5: -961261756
+      healthBarSheetV2_50: -53490613
+      healthBarSheetV2_51: 479779013
+      healthBarSheetV2_52: -501534585
+      healthBarSheetV2_53: 1126186225
+      healthBarSheetV2_54: -916947802
+      healthBarSheetV2_55: 924537912
+      healthBarSheetV2_56: 1276935712
+      healthBarSheetV2_57: -1458753022
+      healthBarSheetV2_58: -550177566
+      healthBarSheetV2_59: 243907571
+      healthBarSheetV2_6: 1844732025
+      healthBarSheetV2_60: -2078020883
+      healthBarSheetV2_61: -180994910
+      healthBarSheetV2_62: 522592741
+      healthBarSheetV2_63: 1982418506
+      healthBarSheetV2_64: 1227332762
+      healthBarSheetV2_65: -578338051
+      healthBarSheetV2_66: -1400623789
+      healthBarSheetV2_67: 1355171147
+      healthBarSheetV2_68: 1423375294
+      healthBarSheetV2_69: -476272793
+      healthBarSheetV2_7: -892011784
+      healthBarSheetV2_70: 1138388801
+      healthBarSheetV2_71: 557549375
+      healthBarSheetV2_72: 348660098
+      healthBarSheetV2_73: -595658928
+      healthBarSheetV2_74: 1226507068
+      healthBarSheetV2_75: 1020114726
+      healthBarSheetV2_76: 99368192
+      healthBarSheetV2_77: 1555353546
+      healthBarSheetV2_78: 463399152
+      healthBarSheetV2_79: 1350176512
+      healthBarSheetV2_8: -619809679
+      healthBarSheetV2_80: -638996492
+      healthBarSheetV2_81: 937227236
+      healthBarSheetV2_82: 1328091418
+      healthBarSheetV2_83: -1795234002
+      healthBarSheetV2_84: -906627169
+      healthBarSheetV2_85: -388181407
+      healthBarSheetV2_86: 1425532278
+      healthBarSheetV2_87: 263478989
+      healthBarSheetV2_88: 729678921
+      healthBarSheetV2_89: -1311796444
+      healthBarSheetV2_9: 502156935
+      healthBarSheetV2_90: 1393825644
+      healthBarSheetV2_91: -812363443
+      healthBarSheetV2_92: -319620678
+      healthBarSheetV2_93: 1069267491
+      healthBarSheetV2_94: -597446837
+      healthBarSheetV2_95: 1647360705
+      healthBarSheetV2_96: -74673238
+      healthBarSheetV2_97: 1282402688
+      healthBarSheetV2_98: -863762151
+      healthBarSheetV2_99: -1685841131
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public int health;
     public int maxHealth = 10;
     public Image healthBar;
-    public Texture[] healthBarImages;
+    public Sprite[] healthBarImages;
 
     void Start()
     {
@@ -31,12 +31,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         // Calculate the index based on the current health
         int index = Mathf.Clamp(health * (healthBarImages.Length - 1) / maxHealth, 0, healthBarImages.Length - 1);
 
-        // Convert the Texture to a Sprite
-        Texture texture = healthBarImages[index];
-        Sprite sprite = Sprite.Create((Texture2D)texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-
         // Assign the Sprite to the healthBar
-        healthBar.sprite = sprite;
+        healthBar.sprite = healthBarImages[index];
     }
 
     public void Damage(float damageAmount)
