@@ -7,6 +7,7 @@ public class QuestPage : MonoBehaviour
     public Transform content;
     public GameObject questEntryPrefab;
     private List<GameObject> questEntries = new List<GameObject>();
+    private List<int> questComplete = new List<int>();
 
     public void AddQuest(string questTitle, string objectiveText)
     {
@@ -32,11 +33,16 @@ public class QuestPage : MonoBehaviour
         GameObject quest = questEntries[questIndex];
         TMP_Text objective = quest.transform.Find("ObjectiveList/ObjectiveText").GetComponent<TMP_Text>();
         CanvasGroup cg = quest.GetComponent<CanvasGroup>();
-
         objective.fontStyle = FontStyles.Strikethrough;
         cg.alpha = 0.3f; // More faded
+        questComplete.Add(questIndex);
     }
-
+    public bool isQuestCompleted(int questIndex)
+    {
+        if (questIndex < 0 || questIndex >= questEntries.Count)
+            return false;
+        return questComplete.Contains(questIndex);
+    }
     public void HighlightQuest(int questIndex)
     {
         if (questIndex < 0 || questIndex >= questEntries.Count)

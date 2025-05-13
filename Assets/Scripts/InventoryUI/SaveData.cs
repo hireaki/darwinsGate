@@ -9,4 +9,7 @@ public class SaveData
     public string mapBoundary; //The boundery for the map
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;
+    public int Level;
+    public int Experience;
+    public int MaxExperience;
 }

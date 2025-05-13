@@ -6,6 +6,7 @@ public class PlayerItemCollector : MonoBehaviour
 {
     private InvetoryController inventoryController;
     public QuestManager questManager;
+    bool completed = false;
     private void Start()
     {
         inventoryController = FindObjectOfType<InvetoryController>();
@@ -26,7 +27,11 @@ public class PlayerItemCollector : MonoBehaviour
                 {
                     item.Pickup();
                     Destroy(collision.gameObject);
-                    questManager.CompleteCurrentQuest();
+                    if (!completed)
+                    {
+                        completed = true;
+                        questManager.CompleteCurrentQuest();
+                    }
                 }
             }
         }

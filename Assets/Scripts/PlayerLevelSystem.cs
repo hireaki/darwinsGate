@@ -4,38 +4,41 @@ using TMPro;
 
 public class PlayerLevelSystem : MonoBehaviour
 {
-    public Slider xpBarSlider;
-    public TextMeshProUGUI xpText;
-    public TextMeshProUGUI levelText;
-   
-
-    public int currentLevel = 1;
-    public int currentXP = 0;
-    public int xpToNextLevel = 100;
+    public Image expBar;
+    public Sprite[] expBarImages;
 
     void Start()
     {
         UpdateUI();
     }
 
+    private void Update()
+    {
+        if (PlayerStatsManager.instance.Experience > 0)
+        {    
+            UpdateUI();
+        }
+    }
     public void GainXP(int amount)
     {
-        currentXP += amount;
-        while (currentXP >= xpToNextLevel)
+        PlayerStatsManager.instance.Experience += amount;
+        while (PlayerStatsManager.instance.Experience >= PlayerStatsManager.instance.MaxExperience)
         {
-            currentXP -= xpToNextLevel;
-            currentLevel++;
-            xpToNextLevel += 50; // Increase XP needed for next level
+            PlayerStatsManager.instance.MaxExperience -= PlayerStatsManager.instance.MaxExperience;
+            PlayerStatsManager.instance.Experience++;
+            PlayerStatsManager.instance.MaxExperience += 50; // Increase XP needed for next level
         }
         UpdateUI();
+
     }
 
     void UpdateUI()
     {
-        xpBarSlider.maxValue = xpToNextLevel;
-        xpBarSlider.value = currentXP;
-        xpText.text = $"Level {currentLevel} - {currentXP}/{xpToNextLevel} XP";
-        levelText.text = $"Level {currentLevel}";
+        // Calculate the index based on the current health
+        int index = Mathf.Clamp(PlayerStatsManager.instance.Experience * (expBarImages.Length - 1) / PlayerStatsManager.instance.MaxExperience, 0, expBarImages.Length - 1);
+
+        // Assign the Sprite to the healthBar
+        expBar.sprite = expBarImages[index];
       
     }
 }

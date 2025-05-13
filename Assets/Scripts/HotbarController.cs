@@ -84,6 +84,8 @@ public class HotbarController : MonoBehaviour
                 if (itemPrefab != null)
                 {
                     GameObject item = Instantiate(itemPrefab, slot.transform);
+                    item.GetComponent<RectTransform>().localScale = new Vector3(0.68f, 0.68f, 0.68f);
+
                     item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     slot.currentItem = item;
                 }

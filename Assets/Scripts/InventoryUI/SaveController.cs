@@ -10,11 +10,12 @@ public class SaveController : MonoBehaviour
     private string saveLocation;
     private InvetoryController inventoryController;
     private HotbarController hotbarController;
+    public bool loadPosition = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "save.json");
+        saveLocation = Path.Combine(Application.persistentDataPath, "save22.json");
         inventoryController = FindObjectOfType<InvetoryController>();
         hotbarController = FindObjectOfType<HotbarController>();
 
@@ -28,7 +29,10 @@ public class SaveController : MonoBehaviour
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             mapBoundary = FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D.gameObject.name,
             inventorySaveData = inventoryController.GetInventoryItems(),
-            hotbarSaveData = hotbarController.GetHorbarItems()
+            hotbarSaveData = hotbarController.GetHorbarItems(),
+            Level = PlayerStatsManager.instance.Level,
+            Experience = PlayerStatsManager.instance.Experience,
+            MaxExperience = PlayerStatsManager.instance.MaxExperience
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -39,10 +43,16 @@ public class SaveController : MonoBehaviour
         if (File.Exists(saveLocation))
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
-            GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+            if (loadPosition)
+            {
+                GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+            }
             FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             hotbarController.SetHotbarItems(saveData.hotbarSaveData);
+            PlayerStatsManager.instance.Level = saveData.Level;
+            PlayerStatsManager.instance.Experience = saveData.Experience;
+            PlayerStatsManager.instance.MaxExperience = saveData.MaxExperience;
         }
         else
         {

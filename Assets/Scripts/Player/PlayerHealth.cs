@@ -7,18 +7,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public Animator hitParticleAnimation;
     public GameObject hitParticleObject;
-    public int health;
-    public int maxHealth = 10;
     public Image healthBar;
     public Sprite[] healthBarImages;
 
-    void Start()
-    {
-        health = maxHealth;
-    }
     private void Update()
     {
-        if (health <= 0)
+        if (PlayerStatsManager.instance.Health <= 0)
         {
             Destroy(gameObject);
         }
@@ -29,7 +23,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void UpdateHealthBar()
     {
         // Calculate the index based on the current health
-        int index = Mathf.Clamp(health * (healthBarImages.Length - 1) / maxHealth, 0, healthBarImages.Length - 1);
+        int index = Mathf.Clamp(PlayerStatsManager.instance.Health * (healthBarImages.Length - 1) / PlayerStatsManager.instance.MaxHealth, 0, healthBarImages.Length - 1);
 
         // Assign the Sprite to the healthBar
         healthBar.sprite = healthBarImages[index];
@@ -40,7 +34,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         hitParticleObject.SetActive(true);
         hitParticleAnimation.Play("HitParticle");
 
-        health -= (int)damageAmount;
+        PlayerStatsManager.instance.Health -= (int)damageAmount;
     }
 
     public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)

@@ -15,7 +15,7 @@ public class QuestManager : MonoBehaviour
     {
         quests.Add(("Water?", "Walk through the shallow water"));
         quests.Add(("What's this?", "Find and pick up a rock"));
-        quests.Add(("How to get across?", "Jump across the Obstacle"));
+        quests.Add(("How to go up?", "Jump across the Platform"));
 
         AddQuest(currentQuestIndex);
     }
