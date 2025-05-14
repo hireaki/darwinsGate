@@ -92,7 +92,10 @@ public class InvetoryController : MonoBehaviour
         {
             Instantiate(slotPrefab, inventoryPanel.transform);
         }
-
+        if (invData == null || invData.Count == 0)
+        {
+            return;
+        }
         foreach (InventorySaveData data in invData)
         {
             if (data.slotIndex < slotCount)

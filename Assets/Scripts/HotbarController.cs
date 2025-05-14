@@ -73,7 +73,10 @@ public class HotbarController : MonoBehaviour
         {
             Instantiate(slotPrefab, hotbarPanel.transform);
         }
-
+        if (hotbarData == null || hotbarData.Count == 0)
+        {
+            return;
+        }
         foreach (InventorySaveData data in hotbarData)
         {
             if (data.slotIndex < slotCount)

@@ -15,7 +15,7 @@ public class SaveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "save22.json");
+        saveLocation = Path.Combine(Application.persistentDataPath, "save3.json");
         inventoryController = FindObjectOfType<InvetoryController>();
         hotbarController = FindObjectOfType<HotbarController>();
 
@@ -56,6 +56,8 @@ public class SaveController : MonoBehaviour
         }
         else
         {
+            inventoryController.SetInventoryItems(null);
+            hotbarController.SetHotbarItems(null);
             SaveGame();  
         }
     }
