@@ -2112,6 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa615840b47a103478e0462bdf1dada4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftingUI: {fileID: 0}
   menuCanvas: {fileID: 1693241891}
   inventoryButton: {fileID: 1262509171}
 --- !u!1 &382659957
@@ -4786,7 +4787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7724,7 +7725,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 82
-      m_TileSpriteIndex: 81
+      m_TileSpriteIndex: 82
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8315,10 +8316,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 60
     m_Data: {fileID: -377000550, guid: 7ab897c8d47c79345b8c49ccc9ad3332, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1344188291, guid: 7ab897c8d47c79345b8c49ccc9ad3332, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1344188291, guid: 7ab897c8d47c79345b8c49ccc9ad3332, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1357495387, guid: 7ab897c8d47c79345b8c49ccc9ad3332, type: 3}
   - m_RefCount: 1
@@ -9052,13 +9053,18 @@ MonoBehaviour:
     m_Bits: 256
   damageableLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256
   isKnockedBack: 0
   facingDirection: 1
   stateTime: 0
   stats: {fileID: 11400000, guid: 7714a9538207a3042b33d906bad190c1, type: 2}
   currentHealth: 20
   alert: {fileID: 65470366}
+  dropItems:
+  - {fileID: 6875898330946171577, guid: 5ad18062662c51e4193fad09a1ce4e12, type: 3}
+  - {fileID: 3495700785082802016, guid: 22e952375df5d71438c5950994f44848, type: 3}
+  - {fileID: 6438749093213048935, guid: d45af2daeef26ce48b0e4f5e9dc550f1, type: 3}
+  - {fileID: 1510359540130243711, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
 --- !u!50 &980687654
 Rigidbody2D:
   serializedVersion: 4
@@ -9192,7 +9198,7 @@ Transform:
   m_GameObject: {fileID: 980687652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -140.48, y: -4.47, z: 0}
+  m_LocalPosition: {x: -184.3, y: -4, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14129,7 +14135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c83278b88cc1d499bfa6a024f62108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 5
   KBForce: 10
   KBAngle: {x: 5, y: 2}
   spriteRenderer: {fileID: 366206138}
@@ -14165,9 +14171,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45131794, y: 0}
+  m_Offset: {x: 0.059592206, y: 0}
   serializedVersion: 2
-  m_Radius: 0.048682213
+  m_Radius: 1.4612049
 --- !u!1 &1938393559
 GameObject:
   m_ObjectHideFlags: 0

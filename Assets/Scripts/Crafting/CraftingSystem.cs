@@ -6,6 +6,13 @@ public class CraftingSystem : MonoBehaviour
     public Slot[] craftingSlots;
     public Slot resultSlot; 
     public List<CraftingRecipe> recipes;
+    SaveController saveController;
+
+    private void Start()
+    {
+        saveController = FindObjectOfType<SaveController>();
+    }
+
 
     public void Craft()
     {
@@ -38,6 +45,7 @@ public class CraftingSystem : MonoBehaviour
                 }
                 GameObject resultItem = Instantiate(recipe.resultPrefab, resultSlot.transform);
                 resultSlot.currentItem = resultItem;
+       
                 return;
             }
         }
@@ -45,4 +53,7 @@ public class CraftingSystem : MonoBehaviour
         // No match found
         resultSlot.currentItem = null;
     }
+
+
+
 }

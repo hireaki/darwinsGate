@@ -3,6 +3,7 @@ using UnityEngine;
 public class InventoryButton : MonoBehaviour
 {
     public GameObject inventoryUI;
+    public GameObject craftingUI;
     public TabController tabController;
 
     private bool isOpen = false;
@@ -17,6 +18,7 @@ public class InventoryButton : MonoBehaviour
 
         isOpen = !isOpen;
         inventoryUI.SetActive(isOpen);
+        craftingUI.SetActive(isOpen);
 
         if (isOpen)
         {

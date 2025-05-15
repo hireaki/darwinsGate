@@ -1988,11 +1988,11 @@ GameObject:
   m_Component:
   - component: {fileID: 366206139}
   - component: {fileID: 366206138}
+  - component: {fileID: 366206144}
   - component: {fileID: 366206137}
   - component: {fileID: 366206135}
   - component: {fileID: 366206141}
   - component: {fileID: 366206143}
-  - component: {fileID: 366206144}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2334,6 +2334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa615840b47a103478e0462bdf1dada4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftingUI: {fileID: 1824245762}
   menuCanvas: {fileID: 1693241891}
   inventoryButton: {fileID: 1262509171}
 --- !u!1 &382659957
@@ -4355,7 +4356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0d5a9d5e981b4088bd5bdebce7ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadPosition: 1
+  loadPosition: 0
 --- !u!1 &689906845
 GameObject:
   m_ObjectHideFlags: 0
@@ -10978,6 +10979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240445c983e088247aa38ebfc8517008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuUi: {fileID: 689906845}
   mainInventory: {fileID: 812562929}
   craftingInventory: {fileID: 961604371}
 --- !u!1 &1224361325
@@ -13226,7 +13228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600401105}
   m_Layer: 0
-  m_Name: ---Mangers---
+  m_Name: ---Managers---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

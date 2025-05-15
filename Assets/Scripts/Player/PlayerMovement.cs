@@ -20,7 +20,12 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpButtonHeld;
     private bool isMovingLeft = false;
     private bool isMovingRight = false;
+    Animator anim;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
         if (!enabled) return;
@@ -36,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 attackObj.transform.localPosition = new Vector3(0.33f, 0, 0);
             }
+            anim.SetBool("isWalking", true);
         }
         else if (input > 0)
         {
@@ -44,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 attackObj.transform.localPosition = new Vector3(0.57f, 0, 0);
             }
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
 
         }
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryMenu : MonoBehaviour
 {
+    public GameObject craftingUI;
     public GameObject menuCanvas;
     public Button inventoryButton;
     // Start is called before the first frame update
@@ -25,5 +26,6 @@ public class InventoryMenu : MonoBehaviour
     void InventoryToggle()
     {
         menuCanvas.SetActive(!menuCanvas.activeSelf);
+        craftingUI.SetActive(!menuCanvas.activeSelf);
     }
 }

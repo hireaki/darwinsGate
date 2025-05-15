@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
 public class CraftingUi : MonoBehaviour
 {
+    public GameObject menuUi;
     public GameObject mainInventory;
     public GameObject craftingInventory;
 
@@ -19,11 +21,13 @@ public class CraftingUi : MonoBehaviour
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
+            menuUi.SetActive(false);
             CopyAllChildren();
         }
         else
         {
             gameObject.SetActive(false);
+            menuUi.SetActive(true);
             ClearAllChildren();
         }
     }

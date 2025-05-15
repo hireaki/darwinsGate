@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public StatsSO stats;
     public float currentHealth;
     public GameObject alert;
+    public List<GameObject> dropItems;
     private SpriteRenderer spriteRenderer;
     #endregion
 
@@ -112,6 +113,11 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
+        if (currentHealth <= 0)
+        {
+            var dropItem = Instantiate(dropItems[UnityEngine.Random.Range(0, dropItems.Count)], transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
         spriteRenderer.color = Color.red; // Change color to red on hit
         await Task.Delay(500); // Wait for 0.5 seconds
         spriteRenderer.color = Color.white; // Reset color after hit

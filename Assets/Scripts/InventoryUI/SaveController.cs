@@ -61,4 +61,10 @@ public class SaveController : MonoBehaviour
             SaveGame();  
         }
     }
+
+    void OnApplicationQuit()
+    {
+        // Place your save or cleanup logic here
+        SaveGame();
+    }
 }
