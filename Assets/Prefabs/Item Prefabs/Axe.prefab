@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8835184445756859036, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
       propertyPath: ID
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8835184445756859036, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
       propertyPath: Name
@@ -18,7 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510359540130243711, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
       propertyPath: m_Name
-      value: Axe Variant
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510359540130243711, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 4003204349921510973, guid: b26f8ef51dfb1d94abdb3089e51d3eae, type: 3}
       propertyPath: m_Sprite

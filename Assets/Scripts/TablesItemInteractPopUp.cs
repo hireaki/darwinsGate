@@ -8,6 +8,7 @@ public class TablesItemInteractPopUp : MonoBehaviour
     public float delay = 2f;
     public GameObject interactButton;
     public int interactionLevelNeeded;
+    public string nextScene = null;
 
     private Coroutine showRoutine;
     [SerializeField] public string[] speaker;
@@ -30,6 +31,7 @@ public class TablesItemInteractPopUp : MonoBehaviour
             interactButton.GetComponent<InteractDialogue>().dialogueWords = dialogueWords;
             interactButton.GetComponent<InteractDialogue>().speaker = speaker;
             interactButton.GetComponent<InteractDialogue>().portrait = portrait;
+            interactButton.GetComponent<InteractDialogue>().nextScene = nextScene;
         }
     }
     void OnTriggerExit2D(Collider2D other)

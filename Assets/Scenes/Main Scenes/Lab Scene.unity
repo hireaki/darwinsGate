@@ -269,7 +269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -770850931, guid: 0d164d82daaa4674da6ccfa2046655a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebdcc4981d3dfec49941f7a1f67e6f0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -307,6 +307,7 @@ MonoBehaviour:
   speaker: []
   dialogueWords: []
   portrait: []
+  nextScene: 
 --- !u!1 &162979660
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +830,7 @@ MonoBehaviour:
   delay: 2
   interactButton: {fileID: 147285583}
   interactionLevelNeeded: 1
+  nextScene: Cave Scene
   speaker:
   - Samuel
   - Samuel
@@ -1653,7 +1655,7 @@ Transform:
   m_GameObject: {fileID: 1208319333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.566, y: 4.076, z: 0}
+  m_LocalPosition: {x: -4.566, y: 4.208, z: 0}
   m_LocalScale: {x: 1.7486329, y: 1.7486329, z: 1.7486329}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1859,7 +1861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2042840548, guid: 0d164d82daaa4674da6ccfa2046655a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf8624df089832048bec47530d9f3a11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1981,6 +1983,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4783925777440620761, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830484490056926691, guid: 295489d0fa6da2f42bc5304280987b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000015258789
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2066,6 +2076,7 @@ MonoBehaviour:
   delay: 2
   interactButton: {fileID: 147285583}
   interactionLevelNeeded: 0
+  nextScene: 
   speaker:
   - Samuel
   - Samuel
@@ -2124,7 +2135,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1278363838, guid: 9598997242e927d41b47220d1eac4d74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2381,7 +2392,7 @@ Transform:
   m_GameObject: {fileID: 1386620256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 2.74, z: 0}
+  m_LocalPosition: {x: -0.22, y: 2.62, z: 0}
   m_LocalScale: {x: 3.02, y: 3.02, z: 3.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2919,6 +2930,7 @@ MonoBehaviour:
   delay: 2
   interactButton: {fileID: 147285583}
   interactionLevelNeeded: 0
+  nextScene: 
   speaker:
   - Samuel
   - Samuel
@@ -3144,7 +3156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 246201868, guid: 0d164d82daaa4674da6ccfa2046655a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6fa8bc57bd25de49858ef6d37dff587, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3462,8 +3474,8 @@ Camera:
   m_GameObject: {fileID: 2134564506}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

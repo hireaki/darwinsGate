@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InteractDialogue : MonoBehaviour
 {
@@ -11,12 +12,13 @@ public class InteractDialogue : MonoBehaviour
     [SerializeField] private TMP_Text speakerText;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Image portraitImage;
-    [SerializeField] private Button nextButton; // ✅ Interact Button for mobile
+    [SerializeField] private Button nextButton;
 
     // Dialogue Content
     [SerializeField] public string[] speaker;
     [SerializeField][TextArea] public string[] dialogueWords;
     [SerializeField] public Sprite[] portrait;
+    [SerializeField] public string nextScene;
 
     private bool dialogueActivated;
     private int step;
@@ -86,6 +88,10 @@ public class InteractDialogue : MonoBehaviour
         dialogueCanvas.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = true;
         Interaction_Manager.instance.interactionLevel++;
+        if (nextScene != null)
+        {
+            SceneManager.LoadScene("Cave");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

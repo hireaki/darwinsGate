@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 attackObj.transform.localPosition = new Vector3(0.33f, 0, 0);
             }
-            anim.SetBool("isWalking", true);
+            if (anim != null) anim.SetBool("isWalking", true);
         }
         else if (input > 0)
         {
@@ -50,12 +50,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 attackObj.transform.localPosition = new Vector3(0.57f, 0, 0);
             }
-            anim.SetBool("isWalking", true);
+            if (anim != null)  anim.SetBool("isWalking", true);
         }
         else
         {
-            anim.SetBool("isWalking", false);
-
+            if (anim != null) anim.SetBool("isWalking", false);
         }
 
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
@@ -90,6 +89,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void AttackButtonDown()
+    {
+        if (attackObj != null)
+        {
+            StartCoroutine(Attack());
+        }
+    }
     IEnumerator Attack()
     {
         attackObj.SetActive(true);

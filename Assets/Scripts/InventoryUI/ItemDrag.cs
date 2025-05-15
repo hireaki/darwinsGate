@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -10,6 +11,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public float minDropDistance = 3f;
     public float maxDropDistance = 4f;
+    public Button attackButton;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +63,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             }
 
             transform.SetParent(dropSlot.transform);
-            dropSlot.currentItem = gameObject; 
+            dropSlot.currentItem = gameObject;
         }
         else
         {

@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void SwitchState(BaseState newState)
     {
+        Debug.Log(newState);
         currentState.Exit();
         currentState = newState;
         currentState.Enter();

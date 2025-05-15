@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingSystem : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class CraftingSystem : MonoBehaviour
                     }
                 }
                 GameObject resultItem = Instantiate(recipe.resultPrefab, resultSlot.transform);
+                resultItem.GetComponent<ItemDrag>().attackButton = GameObject.Find("AttackButton")?.GetComponent<Button>();
                 resultSlot.currentItem = resultItem;
        
                 return;

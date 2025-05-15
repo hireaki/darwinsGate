@@ -24,7 +24,7 @@ public class StartMenuController : MonoBehaviour
         else
         {
             // Fallback if transition is not assigned
-            SceneManager.LoadScene("Intro Scene");
+            SceneManager.LoadScene("Intro Cutscene");
         }
     }
 
@@ -32,7 +32,7 @@ public class StartMenuController : MonoBehaviour
     {
         transitionAnim.SetTrigger("End"); // Make sure this trigger exists in Animator
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("Intro Scene");
+        SceneManager.LoadScene("Intro Cutscene");
     }
 
     public void OnExitClick()

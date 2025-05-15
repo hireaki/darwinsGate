@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerLevelSystem : MonoBehaviour
 {
     public Image expBar;
     public Sprite[] expBarImages;
+    public TMP_Text levelText, expText, eraText;
 
     void Start()
     {
@@ -28,8 +30,9 @@ public class PlayerLevelSystem : MonoBehaviour
             PlayerStatsManager.instance.Experience++;
             PlayerStatsManager.instance.MaxExperience += 50; // Increase XP needed for next level
         }
+        levelText.text = PlayerStatsManager.instance.Level.ToString();
+        expText.text = $"{PlayerStatsManager.instance.Experience.ToString()} / {PlayerStatsManager.instance.MaxExperience.ToString()}";
         UpdateUI();
-
     }
 
     void UpdateUI()
@@ -39,6 +42,8 @@ public class PlayerLevelSystem : MonoBehaviour
 
         // Assign the Sprite to the healthBar
         expBar.sprite = expBarImages[index];
-      
+        levelText.text = $"{PlayerStatsManager.instance.Level.ToString()}";
+        expText.text = $"{PlayerStatsManager.instance.Experience.ToString()} / {PlayerStatsManager.instance.MaxExperience.ToString()}";
+        eraText.text = SceneManager.GetActiveScene().name;
     }
 }

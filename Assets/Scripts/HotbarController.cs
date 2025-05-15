@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class HotbarController : MonoBehaviour
 
     private ItemDictionary itemDictionary;
     private Key[] hotbarKeys;
+    public Button attackButton;
 
     private void Awake()
     {
@@ -22,11 +24,13 @@ public class HotbarController : MonoBehaviour
         {
             hotbarKeys[i] = i < 4 ? (Key)((int)Key.Digit1 + i) : Key.Digit0;
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool attack = false;
         for (int i = 0; i < slotCount; i++)
         {
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
@@ -34,6 +38,21 @@ public class HotbarController : MonoBehaviour
                 UseItemInSlot(i);
             }
         }
+
+
+        foreach (var itemData in GetHorbarItems())
+        {
+            if (itemData.itemID > 10)
+            {
+                attack = true;
+                break;
+            }
+            else
+            {
+                attack = false;
+            }
+        }
+        attackButton.gameObject.SetActive(attack);
     }
 
     void UseItemInSlot(int index)
