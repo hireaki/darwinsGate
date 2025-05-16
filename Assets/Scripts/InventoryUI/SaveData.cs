@@ -12,4 +12,12 @@ public class SaveData
     public int Level;
     public int Experience;
     public int MaxExperience;
+    public List<ChestSaveData> chestSaveData;
+}
+
+[System.Serializable]
+public class ChestSaveData
+{
+    public string ChestID;
+    public bool isOpened; // The index of the slot  in the inventory 
 }

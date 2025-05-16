@@ -88,9 +88,9 @@ public class InteractDialogue : MonoBehaviour
         dialogueCanvas.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = true;
         Interaction_Manager.instance.interactionLevel++;
-        if (nextScene != null)
+        if (nextScene != null && nextScene != "none")
         {
-            SceneManager.LoadScene("Cave");
+            SceneManager.LoadScene(nextScene);
         }
     }
 

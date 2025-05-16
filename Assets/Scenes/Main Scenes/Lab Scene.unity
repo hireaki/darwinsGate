@@ -830,7 +830,7 @@ MonoBehaviour:
   delay: 2
   interactButton: {fileID: 147285583}
   interactionLevelNeeded: 1
-  nextScene: Cave Scene
+  nextScene: Cave
   speaker:
   - Samuel
   - Samuel
@@ -2930,7 +2930,7 @@ MonoBehaviour:
   delay: 2
   interactButton: {fileID: 147285583}
   interactionLevelNeeded: 0
-  nextScene: 
+  nextScene: none
   speaker:
   - Samuel
   - Samuel

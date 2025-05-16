@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,17 +12,22 @@ public class SaveController : MonoBehaviour
     private InvetoryController inventoryController;
     private HotbarController hotbarController;
     public bool loadPosition = true;
+    private Chest[] chests;
 
     // Start is called before the first frame update
     void Start()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "save4.json");
-        inventoryController = FindObjectOfType<InvetoryController>();
-        hotbarController = FindObjectOfType<HotbarController>();
-
+        InitializedComponents();
         LoadGame();
     }
 
+    private void InitializedComponents()
+    {
+        saveLocation = Path.Combine(Application.persistentDataPath, "save11.json");
+        inventoryController = FindObjectOfType<InvetoryController>();
+        hotbarController = FindObjectOfType<HotbarController>();
+        chests = FindObjectsOfType<Chest>();
+    }
     public void SaveGame()
     {
         SaveData saveData = new SaveData
@@ -32,10 +38,26 @@ public class SaveController : MonoBehaviour
             hotbarSaveData = hotbarController.GetHorbarItems(),
             Level = PlayerStatsManager.instance.Level,
             Experience = PlayerStatsManager.instance.Experience,
-            MaxExperience = PlayerStatsManager.instance.MaxExperience
+            MaxExperience = PlayerStatsManager.instance.MaxExperience,
+            chestSaveData = GetChestsState()
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
+    }
+
+    private List<ChestSaveData> GetChestsState()
+    {
+        List<ChestSaveData> chestsState = new List<ChestSaveData>();
+        foreach (Chest chest in chests)
+        {
+            ChestSaveData chestSaveData = new ChestSaveData
+            {
+                ChestID = chest.ChestID,
+                isOpened = chest.IsOpened
+            };
+            chestsState.Add(chestSaveData);
+        }
+        return chestsState;
     }
 
     public void LoadGame()
@@ -53,6 +75,8 @@ public class SaveController : MonoBehaviour
             PlayerStatsManager.instance.Level = saveData.Level;
             PlayerStatsManager.instance.Experience = saveData.Experience;
             PlayerStatsManager.instance.MaxExperience = saveData.MaxExperience;
+
+            LoadChestState(saveData.chestSaveData);
         }
         else
         {
@@ -66,5 +90,18 @@ public class SaveController : MonoBehaviour
     {
         // Place your save or cleanup logic here
         SaveGame();
+    }
+
+    private void LoadChestState(List<ChestSaveData> chestStates)
+    {
+        foreach (Chest chest in chests)
+        {
+            ChestSaveData chestSaveData = chestStates.FirstOrDefault(c => c.ChestID == chest.ChestID);
+
+            if (chestSaveData != null)
+            {
+                chest.SetOpened(chestSaveData.isOpened);
+            }
+        }
     }
 }
