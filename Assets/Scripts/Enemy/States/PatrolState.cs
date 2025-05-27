@@ -24,9 +24,9 @@ public class PatrolState : BaseState
             enemy.SwitchState(enemy.playerDetectedState);
         if (enemy.CheckForObstacle())
             Rotate();
-            
-    }
 
+    }
+    
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

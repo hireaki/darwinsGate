@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd425fa795fa8c4eb9ac139bc48ce63, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
+  maxHealth: 20
   speed: 7
   cliffCheckDistance: 4
   obstacleDistance: 1
