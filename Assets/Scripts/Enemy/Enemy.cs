@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public GameObject alert;
     public List<GameObject> dropItems;
     private SpriteRenderer spriteRenderer;
+    GameObject player;
     #endregion
 
     #region Unity Callbacks
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         currentHealth = stats.maxHealth;
     }
     private void Update()
@@ -56,7 +58,11 @@ public class Enemy : MonoBehaviour, IDamageable
     // Update is called once per frame
     void FixedUpdate()
     {
-        currentState.PhysicsUpdate();
+        var dist = Vector2.Distance(transform.position, player.transform.position);
+        if (dist <= 40)
+        {
+            currentState.PhysicsUpdate();
+        }
     }
     #endregion
 
@@ -98,7 +104,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void SwitchState(BaseState newState)
     {
-        Debug.Log(newState);
         currentState.Exit();
         currentState = newState;
         currentState.Enter();

@@ -11,12 +11,15 @@ public class PlayerLevelSystem : MonoBehaviour
 
     void Start()
     {
-        UpdateUI();
+        if (PlayerStatsManager.instance != null)
+        {
+            UpdateUI();
+        }
     }
 
     private void Update()
     {
-        if (PlayerStatsManager.instance.Experience > 0)
+        if (PlayerStatsManager.instance != null && PlayerStatsManager.instance.Experience > 0)
         {    
             UpdateUI();
         }

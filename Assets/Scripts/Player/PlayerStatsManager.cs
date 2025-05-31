@@ -9,7 +9,7 @@ public class PlayerStatsManager : MonoBehaviour
     public int MaxHealth;
 
     [Header("Player Exp")]
-    public int Level;
+    public int Level = 1;
     public int Experience;
     public int MaxExperience;
 

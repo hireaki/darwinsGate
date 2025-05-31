@@ -7,15 +7,15 @@ public class QuestManager : MonoBehaviour
     public QuestPage questPage;
     public NotificationPanel notificationPanel;
     public PlayerLevelSystem levelSystem;
+     public List<QuestModel> quests;
 
     private int currentQuestIndex = 0;
-    private List<(string, string)> quests = new List<(string, string)>();
 
     void Start()
     {
-        quests.Add(("Water?", "Walk through the shallow water"));
-        quests.Add(("What's this?", "Find and pick up a rock"));
-        quests.Add(("How to go up?", "Jump across the Platform"));
+        //quests.Add(("Water?", "Walk through the shallow water"));
+        //quests.Add(("What's this?", "Find and pick up a rock"));
+        //quests.Add(("How to go up?", "Jump across the Platform"));
 
         AddQuest(currentQuestIndex);
     }
@@ -25,16 +25,16 @@ public class QuestManager : MonoBehaviour
         if (index >= quests.Count)
             return;
 
-        questPage.AddQuest(quests[index].Item1, quests[index].Item2);
+        questPage.AddQuest(quests[index].Title, quests[index].Description);
         questPage.HighlightQuest(index);
-        notificationPanel.ShowNotification($"New Quest: {quests[index].Item1}");
+        notificationPanel.ShowNotification($"New Quest: {quests[index].Title}");
     }
 
     public void CompleteCurrentQuest()
     {
         questPage.CompleteQuest(currentQuestIndex);
         levelSystem.GainXP(1); // Give 1 XP per quest
-        notificationPanel.ShowNotification($"Quest Compeleted: {quests[currentQuestIndex].Item1}");
+        notificationPanel.ShowNotification($"Quest Compeleted: {quests[currentQuestIndex].Title}");
 
         currentQuestIndex++;
 
@@ -48,7 +48,13 @@ public class QuestManager : MonoBehaviour
         if (currentQuestIndex >= quests.Count)
             return false;
 
-        return quests[currentQuestIndex].Item2 == objective;
+        return quests[currentQuestIndex].Description == objective;
     }
 
+    [System.Serializable]
+    public class QuestModel
+    {
+        public string Title;
+        public string Description;
+    }
 }

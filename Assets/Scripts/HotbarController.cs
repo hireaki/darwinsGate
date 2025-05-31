@@ -52,7 +52,8 @@ public class HotbarController : MonoBehaviour
                 attack = false;
             }
         }
-        attackButton.gameObject.SetActive(attack);
+
+        if(attackButton != null) attackButton.gameObject.SetActive(attack);
     }
 
     void UseItemInSlot(int index)

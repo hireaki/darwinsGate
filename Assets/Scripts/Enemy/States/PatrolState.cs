@@ -30,6 +30,7 @@ public class PatrolState : BaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
         if (enemy.isKnockedBack)
             return;
         enemy.rb.velocity = enemy.facingDirection == 1 ? Vector2.right * enemy.stats.speed : Vector2.left * enemy.stats.speed;
