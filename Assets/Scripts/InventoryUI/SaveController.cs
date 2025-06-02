@@ -23,7 +23,7 @@ public class SaveController : MonoBehaviour
 
     private void InitializedComponents()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "save11.json");
+        saveLocation = Path.Combine(Application.persistentDataPath, "save12.json");
         inventoryController = FindObjectOfType<InvetoryController>();
         hotbarController = FindObjectOfType<HotbarController>();
         chests = FindObjectsOfType<Chest>();
