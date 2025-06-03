@@ -2305,6 +2305,7 @@ GameObject:
   - component: {fileID: 366206141}
   - component: {fileID: 366206143}
   - component: {fileID: 366206145}
+  - component: {fileID: 366206146}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2546,6 +2547,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 1678048062}
   interadctButton: {fileID: 1941393991}
+--- !u!95 &366206146
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366206134}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99ac4dfa1b0d8c846a24fc0f1c551633, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &368404671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -531.71027, y: 393}
+  m_AnchoredPosition: {x: -531.71027, y: 464}
   m_SizeDelta: {x: 460.5795, y: 34.2985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476766541
@@ -10043,6 +10065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50785eb41b9eea741aef3f3971cb5f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questManager: {fileID: 0}
   rb: {fileID: 980687654}
   ledgeDectector: {fileID: 1214999422}
   groundLayer:
@@ -11828,7 +11851,11 @@ MonoBehaviour:
   questPage: {fileID: 1424199049}
   notificationPanel: {fileID: 1595999202}
   levelSystem: {fileID: 945642068}
-  quests: []
+  quests:
+  - Title: Craft?
+    Description: Craft a Axe
+  - Title: Enemy?
+    Description: Attack the enemy using axe
 --- !u!4 &1258090991
 Transform:
   m_ObjectHideFlags: 0

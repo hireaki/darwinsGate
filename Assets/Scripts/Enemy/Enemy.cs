@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour, IDamageable
     public PlayerDetectedState playerDetectedState;
     public ChargeState chargeState;
     public MeleeAttackState meleeAttackState;
-    public DamagedState damagedState;   
+    public DamagedState damagedState; 
+    public QuestManager questManager;
 
 
     public Rigidbody2D rb;
@@ -123,6 +124,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             var dropItem = Instantiate(dropItems[UnityEngine.Random.Range(0, dropItems.Count)], transform.position, Quaternion.identity);
             Destroy(gameObject);
+            questManager.CompleteCurrentQuest();
         }
         spriteRenderer.color = Color.red; // Change color to red on hit
         await Task.Delay(500); // Wait for 0.5 seconds

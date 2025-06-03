@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerItemCollector : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class PlayerItemCollector : MonoBehaviour
                 {
                     item.Pickup();
                     Destroy(collision.gameObject);
-                    if (!completed)
+                    if (!completed && SceneManager.GetActiveScene().Equals("Afarensis"))
                     {
                         completed = true;
                         questManager.CompleteCurrentQuest();

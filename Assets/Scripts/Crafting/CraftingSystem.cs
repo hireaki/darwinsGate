@@ -7,10 +7,12 @@ public class CraftingSystem : MonoBehaviour
     public Slot[] craftingSlots;
     public Slot resultSlot; 
     public List<CraftingRecipe> recipes;
+    QuestManager questManager;
     SaveController saveController;
 
     private void Start()
     {
+        questManager = FindObjectOfType<QuestManager>();
         saveController = FindObjectOfType<SaveController>();
     }
 
@@ -47,7 +49,7 @@ public class CraftingSystem : MonoBehaviour
                 GameObject resultItem = Instantiate(recipe.resultPrefab, resultSlot.transform);
                 resultItem.GetComponent<ItemDrag>().attackButton = GameObject.Find("AttackButton")?.GetComponent<Button>();
                 resultSlot.currentItem = resultItem;
-       
+                questManager.CompleteCurrentQuest();
                 return;
             }
         }
